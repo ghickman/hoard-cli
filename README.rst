@@ -1,4 +1,4 @@
-hoard (CLI)
+Hoard (CLI)
 ===========
 This utility allows you to pull variables for a project from your [treasure] `hoard
 <http://github.com/ghickman/hoard>`_.
