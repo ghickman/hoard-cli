@@ -1,28 +1,28 @@
-Trove (CLI)
+hoard (CLI)
 ===========
-This utility allows you to pull variables for a project from your [treasure] `Trove
-<http://github.com/ghickman/trove>`_.
+This utility allows you to pull variables for a project from your [treasure] `hoard
+<http://github.com/ghickman/hoard>`_.
 
 
 Installation
 ------------
 Use your favourite python package installer::
 
-    pip install trove-cli
+    pip install hoard-cli
 
 
 Configuration
 -------------
-Set your trove url and default environment in ``~/.troverc``::
+Set your hoard url and default environment in ``~/.hoardrc``::
 
-    [trove]
+    [hoard]
     url=<some_url>
     env=dev
 
 
-Set your project name in your project's ``.trove`` (ideally in your project's top level directory)::
+Set your project name in your project's ``.hoard`` (ideally in your project's top level directory)::
 
-    [trove]
+    [hoard]
     project=<project_name>
 
 
@@ -30,35 +30,35 @@ Usage
 -----
 List environments for a project, with overrides for project and env::
 
-    trove get [--project] [--env]
+    hoard get [--project] [--env]
 
 
 Set one or more environment variables, with overrides for project and env::
 
-    trove set [--project] [--env] KEY=value [KEY=value,...]
+    hoard set [--project] [--env] KEY=value [KEY=value,...]
 
 
 Delete one or more environment variables, with overrides for project and env::
 
-    trove rm [--project] [--env] KEY [KEY,...]
+    hoard rm [--project] [--env] KEY [KEY,...]
 
 
 Project specific commands, e.g. show the current project, list envs for current project, list all projects::
 
-    trove project [project] [--envs] [--all]
+    hoard project [project] [--envs] [--all]
 
 
 Environment specific commands, e.g. show the current env, list all envs::
 
-    trove env [--all]
+    hoard env [--all]
 
 
 Get your auth token from the server backend::
 
-    trove login
+    hoard login
 
 
 Clear your local auth token::
 
-    trove logout
+    hoard logout
 

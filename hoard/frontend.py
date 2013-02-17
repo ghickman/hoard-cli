@@ -10,9 +10,9 @@ from api import API, EnvDoesNotExist, get_token, NoDeploymentVars, ProjectDoesNo
 
 
 BASE_HTTP_ERROR_MESSAGE = 'An error occurred connecting to the server. Is your URL correct?'
-CONFIG_SECTION = 'trove'
-GLOBAL = os.path.expanduser('~/.troverc')
-LOCAL = os.path.join(os.getcwd(), '.trove')
+CONFIG_SECTION = 'hoard'
+GLOBAL = os.path.expanduser('~/.hoardrc')
+LOCAL = os.path.join(os.getcwd(), '.hoard')
 
 
 class FrontEnd(object):
@@ -85,12 +85,12 @@ class FrontEnd(object):
     def get_var(self, var, cli_arg):
         v = cli_arg if cli_arg else self.config_get(var)
         if not v:
-            self.exit_with_error('No {0} specified. Use --{0} or set it in your local .trove'.format(var))
+            self.exit_with_error('No {0} specified. Use --{0} or set it in your local .hoard'.format(var))
         return v
 
     def login(self, args=None):
-        print('Trove needs to request an access token.')
-        print('Your username and password never stored. (Check ~/.troverc).\n')
+        print('hoard needs to request an access token.')
+        print('Your username and password never stored. (Check ~/.hoardrc).\n')
         username = raw_input('Username: ')
         password = getpass.getpass()
 
@@ -155,7 +155,7 @@ class FrontEnd(object):
                 self.exit_with_error(BASE_HTTP_ERROR_MESSAGE)
 
     def project_does_not_exist(self, project):
-        msg = '"{0}" doesn\'t exist. To list projects use `trove project --list`'
+        msg = '"{0}" doesn\'t exist. To list projects use `hoard project --list`'
         self.exit_with_error(msg.format(project))
 
     def rm(self, args):
@@ -192,8 +192,8 @@ class FrontEnd(object):
                 print(pair)
 
     def set_url(self):
-        print("~/.troverc doesn't a url. Generating now.")
-        url = raw_input('Trove URL: ')
+        print("~/.hoardrc doesn't a url. Generating now.")
+        url = raw_input('hoard URL: ')
         if not url.startswith(('http://', 'https://')):
             url = 'http://{0}'.format(url)
         self.config_set('url', url)
