@@ -1,6 +1,9 @@
 from setuptools import setup
 
 
+install_requires = ['requests==1.1.0', 'termcolor==1.1.0']
+
+
 setup(
     name='trove',
     version='1.0',
@@ -23,6 +26,6 @@ setup(
         'Operating System :: POSIX :: Linux',
         'Programming Language :: Python :: 2.7',
     ),
-    install_requires=['requests==1.1.0']
+    install_requires=install_requires,
 )
 
