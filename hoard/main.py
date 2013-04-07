@@ -33,9 +33,9 @@ def run():
 
     project_parser = sub_parsers.add_parser('project', help='Project specific commands.')
     project_parser.add_argument('project', nargs='?', metavar='PROJECT', default='', help='default to project specified in ~/.hoardrc or .hoard')
-    project_parser.add_argument('-a', '--all', action='store_true', help='show all projects')
     project_parser.add_argument('--add', metavar='PROJECT')
     project_parser.add_argument('-e', '--envs', action='store_true', help='show specified project\'s envs')
+    project_parser.add_argument('-l', '--list', action='store_true', help='list all projects')
     project_parser.set_defaults(func=f.project)
 
     env_parser = sub_parsers.add_parser('env', help='Environment specific commands.')

@@ -127,7 +127,7 @@ class FrontEnd(object):
 
     def project(self, args):
         self.preflight()
-        if args.project and not args.all and not args.envs:
+        if args.project and not args.list and not args.envs:
             project = self.config_get('project')
             if not project:
                 print('No project set')
@@ -140,14 +140,14 @@ class FrontEnd(object):
             except requests.HTTPError:
                 self.exit_with_error(BASE_HTTP_ERROR_MESSAGE)
 
-        if args.all and not args.envs:
+        if args.list and not args.envs:
             try:
                 for project in self.api.projects():
                     print(project['name'])
             except requests.HTTPError:
                 self.exit_with_error(BASE_HTTP_ERROR_MESSAGE)
 
-        if args.envs and not args.all:
+        if args.envs and not args.list:
             try:
                 for env in self.api.projects(args.project)['envs']:
                     print(env)
