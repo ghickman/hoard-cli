@@ -1,14 +1,14 @@
 Hoard (CLI)
 ===========
 This utility allows you to pull variables for a project from your [treasure] `hoard
-<http://github.com/ghickman/hoard>`_.
+<http://github.com/ghickman/hoard-web>`_.
 
 
 Installation
 ------------
 Use your favourite python package installer::
 
-    pip install hoard-cli
+    pip install hoard
 
 
 Configuration
@@ -28,6 +28,11 @@ Set your project name in your project's ``.hoard`` (ideally in your project's to
 
 Usage
 -----
+Get your auth token from the server backend::
+
+    hoard login
+
+
 List environments for a project, with overrides for project and env::
 
     hoard get [--project] [--env]
@@ -51,11 +56,6 @@ Project specific commands, e.g. show the current project, list envs for current 
 Environment specific commands, e.g. show the current env, list all envs::
 
     hoard env [--all]
-
-
-Get your auth token from the server backend::
-
-    hoard login
 
 
 Clear your local auth token::
