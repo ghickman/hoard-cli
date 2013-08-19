@@ -15,20 +15,20 @@ def run():
 
     get_parser = sub_parsers.add_parser('get', help='Retrieve variables for a specific deployment')
     get_parser.add_argument('get', action='store_true', help=argparse.SUPPRESS)
-    get_parser.add_argument('--project')
-    get_parser.add_argument('--env')
+    get_parser.add_argument('-p', '--project')
+    get_parser.add_argument('-e', '--env')
     get_parser.set_defaults(func=f.get)
 
     set_parser = sub_parsers.add_parser('set', help='Create/update variable(s) in a specific deployment.')
     set_parser.add_argument('set', nargs='+', metavar='VAR=value')
-    set_parser.add_argument('--project')
-    set_parser.add_argument('--env')
+    set_parser.add_argument('-p', '--project')
+    set_parser.add_argument('-e', '--env')
     set_parser.set_defaults(func=f.set)
 
     rm_parser = sub_parsers.add_parser('rm', help='Delete variable(s) in a specific deployment.')
     rm_parser.add_argument('rm', nargs='+', metavar='VAR')
-    rm_parser.add_argument('--project')
-    rm_parser.add_argument('--env')
+    rm_parser.add_argument('-p', '--project')
+    rm_parser.add_argument('-e', '--env')
     rm_parser.set_defaults(func=f.rm)
 
     project_parser = sub_parsers.add_parser('project', help='Project specific commands.')
