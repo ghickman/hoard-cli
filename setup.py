@@ -6,7 +6,7 @@ install_requires = ['requests==1.1.0', 'termcolor==1.1.0']
 
 setup(
     name='hoard',
-    version='1.0.1',
+    version='1.1.0',
     description='',
     long_description=open('README.rst').read() + '\n\n' +
                      open('CHANGELOG.rst').read(),
