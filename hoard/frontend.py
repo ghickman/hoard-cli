@@ -176,7 +176,7 @@ class FrontEnd(object):
         project = args.project if args.project else self.config_get('project')
         env = args.env if args.env else self.config_get('env')
 
-        pairs = dict({tuple(pair.split('=')) for pair in args.set})
+        pairs = dict({tuple(pair.split('=', 1)) for pair in args.set})
 
         try:
             self.api.pairs(project, env, pairs)
