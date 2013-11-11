@@ -8,7 +8,7 @@ Installation
 ------------
 Use your favourite python package installer::
 
-    pip install hoard-cli
+    pip install hoard
 
 
 Configuration
