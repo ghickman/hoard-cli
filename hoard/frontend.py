@@ -89,18 +89,23 @@ class FrontEnd(object):
         return v
 
     def login(self, args=None):
+        url = self.config_get('url')
+        if not url:
+            self.set_url()
+
         print('hoard needs to request an access token.')
         print('Your username and password never stored. (Check ~/.hoardrc).\n')
         username = raw_input('Username: ')
         password = getpass.getpass()
 
         try:
-            token = get_token(self.config_get('url'), username, password)
+            token = get_token(url, username, password)
         except requests.HTTPError:
             self.exit_with_error(BASE_HTTP_ERROR_MESSAGE)
 
         self.config_set('token', token)
-        self.api = API(self.config_get('url'), token)
+        self.api = API(url, token)
+        print('You have successfully logged in')
 
     def logout(self, args):
         config = ConfigParser.ConfigParser()
@@ -192,9 +197,8 @@ class FrontEnd(object):
                 print(pair)
 
     def set_url(self):
-        print("~/.hoardrc doesn't a url. Generating now.")
+        print("~/.hoardrc doesn't have a URL. Generating now.")
         url = raw_input('hoard URL: ')
         if not url.startswith(('http://', 'https://')):
             url = 'http://{0}'.format(url)
         self.config_set('url', url)
-
