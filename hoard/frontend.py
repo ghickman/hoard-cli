@@ -105,6 +105,7 @@ class FrontEnd(object):
 
         self.config_set('token', token)
         self.api = API(url, token)
+        print('You have successfully logged in')
 
     def logout(self, args):
         config = ConfigParser.ConfigParser()
@@ -196,7 +197,7 @@ class FrontEnd(object):
                 print(pair)
 
     def set_url(self):
-        print("~/.hoardrc doesn't have an URL. Generating now.")
+        print("~/.hoardrc doesn't have a URL. Generating now.")
         url = raw_input('hoard URL: ')
         if not url.startswith(('http://', 'https://')):
             url = 'http://{0}'.format(url)
