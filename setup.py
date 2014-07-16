@@ -7,7 +7,7 @@ install_requires = ['requests==1.1.0', 'termcolor==1.1.0']
 setup(
     name='hoard',
     version='1.1.1',
-    description='',
+    description='Allows you to pull variables for a project from your [treasure] hoard.',
     long_description=open('README.rst').read() + '\n\n' +
                      open('CHANGELOG.rst').read(),
     author='George Hickman',
